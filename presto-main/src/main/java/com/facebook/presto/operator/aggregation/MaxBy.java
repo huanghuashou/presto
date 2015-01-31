@@ -119,6 +119,9 @@ public class MaxBy
 
     public static void combine(MaxOrMinByState state, MaxOrMinByState otherState)
     {
+        if (otherState.getKey() == null || otherState.getKey().isNull(0)) {
+            return;
+        }
         if (state.getKey() == null) {
             state.setKey(otherState.getKey());
             state.setValue(otherState.getValue());
